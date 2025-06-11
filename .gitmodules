@@ -2,3 +2,7 @@
 	path = public
 	url = git@github.com:mez3n/mez3n.blog.git
 	branch = main
+[submodule "mez3n.blog/public"]
+	path = mez3n.blog/public
+	url = git@github.com:mez3n/mez3n.blog.git
+	branch = main
