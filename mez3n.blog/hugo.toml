@@ -1,4 +1,7 @@
 baseURL = 'https://mez3n.github.io/mez3n.blog/'
-languageCode = 'en-us'
+locale = 'en-US'
 title = "Mez3n's Blog"
 theme = "hugo-PaperMod"
+
+[params]
+author = "Mazen Adel"
