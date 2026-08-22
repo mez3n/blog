@@ -25,7 +25,8 @@ The project is organized as four merge-request units:
 **GitLab Activity:** [My contribution history](https://gitlab.rtems.org/users/mez3n/activity)  
 **First-Fit Refactoring Issue:** [rtems/rtos/rtems#5620](https://gitlab.rtems.org/rtems/rtos/rtems/-/work_items/5620)  
 **TLSF Tracking Issue:** [rtems/rtos/rtems#5633](https://gitlab.rtems.org/rtems/rtos/rtems/-/work_items/5633)  
-**Allocator Integration Issue:** [rtems/rtos/rtems#5619](https://gitlab.rtems.org/rtems/rtos/rtems/-/work_items/5619)
+**Allocator Integration Issue:** [rtems/rtos/rtems#5619](https://gitlab.rtems.org/rtems/rtos/rtems/-/work_items/5619)  
+**Related Forum Discussions:** [Heap refactoring discussion](https://users.rtems.org/t/rtems-heap-refactoring-discussion/879), [alternative memory allocators](https://users.rtems.org/t/alternative-memory-allocators/597), and [allocator configuration](https://users.rtems.org/t/choosing-the-configuration-method-for-rtems-allocator/896)
 
 ## Work Completed
 
@@ -115,7 +116,7 @@ The original proposal also included exploring and implementing RT-Mimalloc. This
 
 During the coding period, the heap refactoring, TLSF implementation, portability work, testing, and allocator abstraction required more time than initially expected. I therefore prioritized establishing a correct and reviewable foundation for modular heap support instead of beginning an RT-Mimalloc implementation that could not be completed or properly tested within the available time.
 
-The `rtems_allocator` abstraction is nearly finished, but completing it was delayed by the need to resolve architectural questions about startup configuration, backend selection, and how the workspace and malloc heap instances should obtain their allocator objects. The implementation, first-fit adapter, unsupported-operation handling, and tests are already present on the branch. The remaining work is mainly to finalize these design decisions, make any resulting adjustments, and submit the merge request.
+The `rtems_allocator` abstraction is nearly finished, but completing it was delayed by the need to resolve architectural questions about startup configuration, backend selection, and how the workspace and malloc heap instances should obtain their allocator objects. The implementation, first-fit adapter, unsupported-operation handling, and tests are already present on the [`rtems_allocator` branch](https://gitlab.rtems.org/mez3n/rtems/-/tree/adding-rtems-allocator-structure?ref_type=heads). The remaining work is mainly to finalize these design decisions and make any resulting adjustments.
 
 RT-Mimalloc remains a possible direction for future work after the allocator abstraction and TLSF integration are finalized. The abstraction developed during this project should make it easier to add and evaluate allocators such as RT-Mimalloc in the future.
 
@@ -125,7 +126,7 @@ RT-Mimalloc remains a possible direction for future work after the allocator abs
 |--------------------|--------|-----------|
 | First-fit heap header refactor | Implemented and merged | [MR !1308](https://gitlab.rtems.org/rtems/rtos/rtems/-/merge_requests/1308) |
 | TLSF allocator and tests | Implemented; draft MR open with passing CI | [MR !1395](https://gitlab.rtems.org/rtems/rtos/rtems/-/merge_requests/1395) |
-| Generic `rtems_allocator` interface | Nearly complete; final configuration design pending | MR not opened yet |
+| Generic `rtems_allocator` interface | Nearly complete; final configuration design pending | [`rtems_allocator` branch](https://gitlab.rtems.org/mez3n/rtems/-/tree/adding-rtems-allocator-structure?ref_type=heads) |
 | First-fit versus TLSF benchmark | In progress; depends on the `rtems_allocator` branch | MR not opened yet |
 
 ## Challenges and Lessons Learned
